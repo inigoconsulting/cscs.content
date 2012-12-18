@@ -1,4 +1,4 @@
-cscs.content Copyright 2012, <YOUR NAME HERE>
+cscs.content Copyright 2012, Centre for the Study of Culture and Society
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
