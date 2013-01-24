@@ -18,12 +18,15 @@
     </dt>
     <dd>
 
+        <tal:block condition="collection_obj/leadImage|nothing">
         <img tal:define="collection_obj view/base"
              tal:attributes="src string:${collection_url}/leadImage_mini"
-           />
+             />
+     </tal:block>
  
     <div class="multiviewRichTextBody" tal:content="structure view/data/text">   
     </div>
+    <div class="visualClear"></div>
    
     </dd>
     
