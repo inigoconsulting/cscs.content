@@ -1,7 +1,7 @@
 <dl class="portlet portletCollection"
     i18n:domain="plone"
     tal:define="collection_url view/collection_url;
-                more_url view/data/more_url;
+                more_url view/data/more_url|nothing;
                 more_url python:more_url or collection_url;
                 collection view/collection;
                 plone_view context/@@plone;
@@ -57,7 +57,7 @@
     <dd class="portletFooter" tal:condition="view/data/show_more">
         <span class="portletBottomLeft"></span>
         <span>
-        <a tal:attributes="href more_url" tal:content="view/data/more_text">
+        <a tal:attributes="href more_url" tal:content="view/data/more_text|nothing">
              More&hellip;
              </a>
         </span>
