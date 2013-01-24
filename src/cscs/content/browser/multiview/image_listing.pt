@@ -25,40 +25,36 @@
 
 
         <ul class="image-listing"
-            tal:define="item_obj obj/getObject"
-            >
-            <li >
-                   <div class="image-listing-container">
+            tal:define="item_obj obj/getObject">
+            <li>
+                <div class="image-listing-container">
                     <h3 class="image-listing-header">
-                        <a
-                            href="#"
+                        <a href="#"
                             tal:attributes="href obj/getURL;">
-                   <img
-                   src=""
-                       alt=""
-                                 tal:condition="item_obj/image"
-                                 tal:replace="structure
-                                 python:
-                                 path('nocall:item_obj/tag')(scale='tile',
-                                 )"
-                                 />
-                     <img
-                         tal:condition="item_obj/hasContentLeadImage |
-                         nothing"
-                         tal:attributes="src
-                         string:
-                         ${item_url}/leadImage_tile"
-                       />
-
-                            Heading Text
+                            <img
+                                src=""
+                                alt=""
+                                tal:condition="item_obj/image"
+                                tal:replace="structure
+                                python:
+                                path('nocall:item_obj/tag')(scale='tile',
+                                )"
+                                />
+                            <img
+                                tal:condition="item_obj/hasContentLeadImage |
+                                nothing"
+                                tal:attributes="src
+                                string:
+                                ${item_url}/leadImage_tile"
+                                />
                         </a>
                     </h3>
-                <tal:hasEDate condition="python:item_effective !='None'"></tal:hasEDate>
-                <span class="portletItemDetails" tal:content="python:toLocalizedTime(item_effective,long_format=1)">
-                August 16, 2001 at 23:35:59
-            </span>
-        </div>
-             </li>
+                    <tal:hasEDate condition="python:item_effective !='None'"></tal:hasEDate>
+                    <span class="portletItemDetails" tal:content="python:toLocalizedTime(item_effective,long_format=1)">
+                        August 16, 2001 at 23:35:59
+                    </span>
+                </div>
+            </li>
         </ul>
                                 
 
