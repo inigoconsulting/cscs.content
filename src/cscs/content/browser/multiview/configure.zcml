@@ -18,6 +18,10 @@
             factory=".base.StaticRichTextRenderer" />
 
    <adapter name="peoplecolumn"
-            factory=".peoplecolumn.PeopleColumnRenderer" />
+           factory=".peoplecolumn.PeopleColumnRenderer" />
+
+   <adapter name="cscs.homepageslider"
+            factory=".homepageslider.HomepageSliderRenderer" />
+
 
 </configure>

@@ -1,0 +1,69 @@
+<script src="++theme++cscs.theme/unslider.js"></script>
+<style>
+    .portletHomepageSlider { position: relative; overflow: auto; width:815px}
+    .portletHomepageSlider li { list-style: none; }
+    .portletHomepageSlider ul li { float: left; margin:0;padding:0}
+    .portletHomepageSlider { background : #dcdcdc; }
+    .portletHomepageSlider div.slide { background:#000; color:#fff; }
+    .portletHomepageSlider div.slide h2 { color:#fff; font-size:30px; }
+    .portletHomepageSlider div.slide h3 { color:#fff; }
+    .portletHomepageSlider ol.dots { position:absolute; top: 15px; right:20px;}
+    .portletHomepageSlider ol.dots li { float:left; color: transparent; background: #505050; margin: 5px;width:10px;height:10px;}
+    .portletHomepageSlider ol.dots li.active { background: #EB7515; color: transparent}
+</style>
+<div class="portletHomepageSlider"
+    i18n:domain="plone"
+    tal:define="collection_url view/collection_url;
+    plone_view context/@@plone;
+    toLocalizedTime nocall:plone_view/toLocalizedTime;
+    getIcon nocall:plone_view/getIcon;">
+
+
+
+    <div class="homepage-slider-title" style="padding:0 15px;">
+        <h1 tal:content="view/data/title"></h1>
+    </div>
+
+    <div class="homepage-slider">
+    <ul class="homepage-slider-images" style="margin:0;padding:0">
+        <tal:loop repeat="obj view/results">
+            <li tal:define="item_created obj/CreationDate;
+                item_obj obj/getObject;
+                scales item_obj/@@images;
+                has_image item_obj/carousel_image|nothing">
+
+                <div class="slide">
+                    <div style="float:left;width:220px;padding:15px"
+                        tal:define="carousel_title item_obj/carousel_title|item_obj/title;
+                        carousel_desc item_obj/carousel_description|item_obj/Description;">
+                        <h2 tal:content="carousel_title"/>
+                        <h3 tal:content="carousel_desc"/>
+                    </div>
+                    <div style="float:left:width:565px">
+
+                        <tal:block condition="has_image">
+                            <img tal:define="scale python:scales.scale('image', scale='large')"
+                                tal:replace="scale/tag"/>
+                        </tal:block>
+                        <tal:block condition="not:has_image">
+                            <img src="http://placehold.it/565x350"/>
+                        </tal:block>
+                    </div>
+                    <div class="visualClear"></div>
+                </div> 
+            </li>
+        </tal:loop>
+    </ul>
+    </div>
+
+
+
+
+    <script>
+        $(document).ready(function () {
+        $('.portletHomepageSlider .homepage-slider').unslider({
+            'dots': true
+        })
+        })
+    </script>
+</div>
