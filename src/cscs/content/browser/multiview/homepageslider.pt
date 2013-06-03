@@ -41,7 +41,7 @@
                         <h2 tal:content="carousel_title"/>
                         <h3 tal:content="carousel_desc"/>
                     </div>
-                    <div style="float:left:width:565px">
+                    <div style="float:left;width:565px">
                         <a tal:attributes="href item_obj/absolute_url">
                         <tal:block condition="has_image">
                             <img tal:define="scale python:scales.scale('image', scale='large')"
