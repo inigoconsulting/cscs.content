@@ -23,14 +23,6 @@
            class="tile"
            tal:attributes="href obj/getURL;">
 
-           <div tal:condition="repeat/obj/start"
-                tal:define="item_obj obj/getObject">
-                 <img
-                        tal:attributes="src
-                         string:
-                         ${item_obj/absolute_url}/leadImage_mini"
-                       />
-            </div>
             <span tal:replace="obj/pretty_title_or_id">
              Title
             </span>
