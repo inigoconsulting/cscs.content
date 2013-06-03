@@ -25,17 +25,19 @@
     </div>
 
     <div class="homepage-slider">
-    <ul class="homepage-slider-images" style="margin:0;padding:0">
+    <ul class="homepage-slider-images" style="margin:0;padding:0;height:350px">
         <tal:loop repeat="obj view/results">
             <li tal:define="item_created obj/CreationDate;
                 item_obj obj/getObject;
                 scales item_obj/@@images;
                 has_image item_obj/carousel_image|nothing">
 
-                <div class="slide">
+                <div class="slide" style="height:350px;">
                     <div style="float:left;width:220px;padding:15px"
-                        tal:define="carousel_title item_obj/carousel_title|item_obj/title;
-                        carousel_desc item_obj/carousel_description|item_obj/Description;">
+                        tal:define="carousel_title item_obj/carousel_title|nothing;
+                        carousel_title python:carousel_title or item_obj.Title();
+                        carousel_desc item_obj/carousel_description|nothing;
+                        carousel_desc python:carousel_desc or item_obj.Description();">
                         <h2 tal:content="carousel_title"/>
                         <h3 tal:content="carousel_desc"/>
                     </div>
