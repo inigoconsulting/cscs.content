@@ -1,6 +1,6 @@
 <script src="++theme++cscs.theme/unslider.js"></script>
 <style>
-    .portletHomepageSlider { position: relative; overflow: auto; width:815px}
+    .portletHomepageSlider { position: relative; overflow: auto; width:815px; margin-bottom:20px}
     .portletHomepageSlider li { list-style: none; }
     .portletHomepageSlider ul li { float: left; margin:0;padding:0}
     .portletHomepageSlider { background : #dcdcdc; }
@@ -44,8 +44,7 @@
                     <div style="float:left;width:565px">
                         <a tal:attributes="href item_obj/absolute_url">
                         <tal:block condition="has_image">
-                            <img tal:define="scale python:scales.scale('image', scale='large')"
-                                tal:replace="scale/tag"/>
+                            <img tal:attributes="src string:${item_obj/absolute_url}/carousel_image"/>
                         </tal:block>
                         <tal:block condition="not:has_image">
                             <img src="http://placehold.it/565x350"/>
